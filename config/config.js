@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
 const setConfig = (config) => {
-    window.electron.ipcRenderer.sendMessage('setPluginConfig', {plugin: 'r6', config});
+    window.electron.ipcRenderer.sendMessage('setPluginConfig', {plugin: 'parker-desktop-plugins-r6', config});
 }
 
 const appendConfig = (config) => {
-    window.electron.ipcRenderer.sendMessage('appendPluginConfig', {plugin: 'r6', toSet: config});
+    window.electron.ipcRenderer.sendMessage('appendPluginConfig', {plugin: 'parker-desktop-plugins-r6', toSet: config});
 }
 
 const getConfig = (callBack) => {
     window.electron.ipcRenderer.once('getPluginConfig', config => {
         callBack(config);
     });
-    window.electron.ipcRenderer.sendMessage('getPluginConfig', {plugin: 'r6'});
+    window.electron.ipcRenderer.sendMessage('getPluginConfig', {plugin: 'parker-desktop-plugins-r6'});
 }
 
 

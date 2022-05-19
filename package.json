@@ -1,5 +1,6 @@
 {
-    "name": "r6",
+    "name": "R6",
     "version": "1.0",
-    "author": "Parker"
+    "author": "Parker",
+    "description": "Permite a pesquisa de status de jogadores de Rainbow Six: Siege"
 }
