@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { appendFileSync } from 'fs';
 
-const ENDPOINT = 'https://parker-r6stats.herokuapp.com';
+const ENDPOINT = 'https://parker-servers-r6stats.herokuapp.com';
 
 const getServerStatus = async() => {
     var response = await axios.get(ENDPOINT);
