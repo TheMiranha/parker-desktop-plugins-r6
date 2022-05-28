@@ -1,3 +1,4 @@
+import { Repeat } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 
 const setConfig = (config) => {
@@ -9,13 +10,9 @@ const appendConfig = (config) => {
 }
 
 const getConfig = (callBack) => {
-    execOnce = () => {
-        window.electron.ipcRenderer.once('getPluginConfig', config => {
-            if (config.plugin == 'parker-desktop-plugins-r6') {
+    const execOnce = () => {
+        window.electron.ipcRenderer.once('parker-desktop-plugins-r6-config', config => {
                 callBack(config.config);
-            } else {
-                execOnce();
-            }
         });
     }
     execOnce();
