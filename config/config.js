@@ -9,12 +9,18 @@ const appendConfig = (config) => {
 }
 
 const getConfig = (callBack) => {
-    window.electron.ipcRenderer.once('getPluginConfig', config => {
-        callBack(config);
-    });
+    execOnce = () => {
+        window.electron.ipcRenderer.once('getPluginConfig', config => {
+            if (config.plugin == 'parker-desktop-plugins-r6') {
+                callBack(config.config);
+            } else {
+                execOnce();
+            }
+        });
+    }
+    execOnce();
     window.electron.ipcRenderer.sendMessage('getPluginConfig', {plugin: 'parker-desktop-plugins-r6'});
 }
-
 
 const RENDER_CONFIG = true;
 const RENDER_TITLE = 'Rainbow Six';
